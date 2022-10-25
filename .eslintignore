@@ -1,0 +1,5 @@
+/node_modules
+/build
+
+/src/helpers/requests/launchSaga.js
+/src/helpers/requests/watcherRequest.js
