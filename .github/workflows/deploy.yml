@@ -15,7 +15,7 @@ jobs:
           node-version: 18
 
       - name: build project
-      - run: npm run build
+        run: npm run build
 
       - name: transfer
         run: bash "${GITHUB_WORKSPACE}/misc/deploy-runner.sh"
