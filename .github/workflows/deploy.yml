@@ -1,0 +1,21 @@
+name: main-workflow
+on:
+  push:
+    branches: [main]
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: build project
+      - run: npm run build
+
+      - name: transfer
+        run: bash "${GITHUB_WORKSPACE}/misc/deploy-runner.sh"
