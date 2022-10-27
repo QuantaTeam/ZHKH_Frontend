@@ -23,8 +23,8 @@ export const HomePageLayout = React.memo(() => {
       <h1>Custom Marker Cluster</h1>
       <MapContainer
         style={{ height: '500px' }}
-        center={[38.9637, 35.2433]}
-        zoom={4}
+        center={[55.754339720338024, 37.62283505324696]}
+        zoom={10}
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -45,7 +45,7 @@ export const HomePageLayout = React.memo(() => {
           }}
           showCoverageOnHover={true}
         >
-          <Marker position={[36.668754, 29.104185]} icon={defaultMarker} >
+          <Marker position={[55.846534, 37.432926]} icon={defaultMarker} >
             <Popup className="request-popup">
               <div >
                 <img
@@ -69,11 +69,11 @@ export const HomePageLayout = React.memo(() => {
               </div>
             </Popup>
           </Marker>
-          <Marker position={[40.587613, 36.944535]} icon={defaultMarker} />
-          <Marker position={[40.614681, 43.121517]} icon={defaultMarker} />
-          <Marker position={[38.357641, 38.328708]} icon={defaultMarker} />
-          <Marker position={[41.051687, 28.987261]} title="a title" icon={defaultMarker} />
-          <Marker position={[39.931841, 32.876713]} icon={defaultMarker} />
+          <Marker position={[55.710602, 37.442725]} icon={defaultMarker} />
+          <Marker position={[55.644302, 37.573375]} icon={defaultMarker} />
+          <Marker position={[55.639693, 37.725256]} icon={defaultMarker} />
+          <Marker position={[55.704161, 37.797930]} title="a title" icon={defaultMarker} />
+          <Marker position={[55.791483, 37.788948]} icon={defaultMarker} />
         </MarkerClusterGroup>
       </MapContainer>
     </div>
