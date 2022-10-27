@@ -1,15 +1,10 @@
 import React from 'react';
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
-import L, { MarkerCluster } from 'leaflet';
+import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 import { defaultMarker } from './defaultMarker';
-
-const customIcon = new L.Icon({
-  iconUrl: require('./location.svg').default,
-  iconSize: new L.Point(40, 47),
-});
 
 // NOTE: iconCreateFunction is running by leaflet, which is not support ES6 arrow func syntax
 // eslint-disable-next-line
