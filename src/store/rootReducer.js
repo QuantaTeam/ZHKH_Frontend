@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { getAllLocations } from '../pages/HomePage/reducers/getAllLocations';
+import { getLocationByID } from '../pages/HomePage/reducers/getLocationByID';
 
 const persistConfig = {
   key: 'root',
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   getAllLocations,
+  getLocationByID,
 });
 
 export default persistReducer(persistConfig, rootReducer);

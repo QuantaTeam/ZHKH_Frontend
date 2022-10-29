@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { MapContainer, Marker, TileLayer, Popup, useMap } from 'react-leaflet';
+import React, { useContext, useEffect, useRef } from 'react';
+import { MapContainer, Marker, TileLayer, Popup, useMap, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet/dist/leaflet.css';
@@ -19,13 +19,33 @@ const createClusterCustomIcon = function (cluster) {
   });
 };
 
+function SetViewOnClick({ animateRef }) {
+  const map = useMapEvent('click', (e) => {
+    map.setView(e.latlng, map.getZoom(), {
+      animate: animateRef.current || false,
+    });
+  });
+
+  return null;
+}
+
+const RecenterAutomatically = ({ lat, lng }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([lat, lng]);
+    map.setZoom(15);
+  }, [lat, lng, map]);
+  return null;
+};
+
 export const MapLayout = React.memo(() => {
 
-  const { getAllLocations } = useContext(HomeContext);
+  const { getAllLocations, getLocationByID } = useContext(HomeContext);
+
+  const animateRef = useRef(true);
 
   return (
     <div className={styles.map__container}>
-      <h1>Custom Marker Cluster</h1>
       <MapContainer
         style={{ height: '500px' }}
         center={[55.754339720338024, 37.62283505324696]}
@@ -36,6 +56,8 @@ export const MapLayout = React.memo(() => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <SetViewOnClick animateRef={animateRef} />
+        {getLocationByID.data?.geo_coordinates && <RecenterAutomatically lat={getLocationByID.data?.geo_coordinates[0]} lng={getLocationByID.data?.geo_coordinates[1]} />}
         <MarkerClusterGroup
           onClick={(e) => console.log('onClick', e)}
           iconCreateFunction={createClusterCustomIcon}
@@ -56,34 +78,22 @@ export const MapLayout = React.memo(() => {
                 position={item.geo_coordinates}
                 icon={defaultMarker}
                 key={index}
-              />
+                eventHandlers={{
+                  click: (e) => {
+                    console.log(`marker clicked ${item.id}`, e);
+                  },
+                }}
+              >
+                <Popup className="request-popup">
+                  <div >
+                    <div className="m-2" >
+                      {item.id}
+                    </div>
+                  </div>
+                </Popup>
+              </Marker>
             ))
           }
-          {/*          <Marker position={[55.846534, 37.432926]} icon={defaultMarker} >
-            <Popup className="request-popup">
-              <div >
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/basicolor-arrows-checks/24/149_check_ok-512.png"
-                  width="150"
-                  height="150"
-                  alt="no img"
-                />
-                <div className="m-2" >
-                  Success!
-                </div>
-                <span >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                  nisi ut aliquip ex ea commodo consequat.
-                </span>
-                <div className="m-2" >
-                  Okay
-                </div>
-              </div>
-            </Popup>
-          </Marker>
-*/}
         </MarkerClusterGroup>
       </MapContainer>
     </div >

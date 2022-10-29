@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MapContainer } from '../../containers/mapContainer';;
+import { FilterContainer } from '../../containers/filterContainer';
 
 export const HomePageLayout = React.memo(() => {
   return (
@@ -8,7 +8,7 @@ export const HomePageLayout = React.memo(() => {
       <h1>
         Home Page
       </h1>
-      <MapContainer />
+      <FilterContainer />
     </div>
   );
 });

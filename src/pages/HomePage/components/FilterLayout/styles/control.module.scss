@@ -1,0 +1,9 @@
+.control__container{
+  margin-bottom: 10px;
+  .pickers__container{
+    display: flex;
+    .picker__from{
+      margin-right: 20px;
+    }
+  }
+}
