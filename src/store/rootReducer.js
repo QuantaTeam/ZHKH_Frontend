@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { lol } from '../pages/HomePage/reducers/index';
+import { getAllLocations } from '../pages/HomePage/reducers/getAllLocations';
+import { getLocationByID } from '../pages/HomePage/reducers/getLocationByID';
 
 const persistConfig = {
   key: 'root',
@@ -11,9 +12,9 @@ const persistConfig = {
   transforms: [],
 };
 
-
 const rootReducer = combineReducers({
-  lol,
+  getAllLocations,
+  getLocationByID,
 });
 
 export default persistReducer(persistConfig, rootReducer);

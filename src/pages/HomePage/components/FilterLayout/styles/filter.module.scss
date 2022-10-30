@@ -1,0 +1,11 @@
+@import './listRequest.module.scss';
+@import './control.module.scss';
+
+.base__contetnt {
+  .filter {
+    display: flex;
+    .map__range {
+      width: 50%;
+    }
+  }
+}

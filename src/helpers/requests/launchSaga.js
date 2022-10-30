@@ -11,7 +11,7 @@ export default function* launchSaga(action) {
     const { response } = action.payload;
 
 
-    yield (api.defaults.headers.Authorization = `Bearer ${response.access_token}`);
+    //yield (api.defaults.headers.Authorization = `Bearer ${response.access_token}`);
 
   } else {
 
@@ -20,12 +20,12 @@ export default function* launchSaga(action) {
 
       const state = yield select(authSelector);
 
-      const { access_token, refresh_token } = state;
+      // const { access_token, refresh_token } = state;
 
-      if (access_token) {
-        axios.defaults.headers.Authorization = `Bearer ${access_token}`;
-        api.defaults.headers.Authorization = `Bearer ${access_token}`;
-      }
+      /*  if (access_token) {
+         axios.defaults.headers.Authorization = `Bearer ${access_token}`;
+         api.defaults.headers.Authorization = `Bearer ${access_token}`;
+       } */
     } catch (err) {
       yield console.log(err);
     }
