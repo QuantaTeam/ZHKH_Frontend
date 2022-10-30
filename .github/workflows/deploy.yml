@@ -15,7 +15,7 @@ jobs:
           node-version: 18
 
       - name: install deps
-        run: npm i
+        run: npm i --force
 
       - name: build project
         run: npm run build
