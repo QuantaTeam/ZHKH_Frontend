@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { MapContainer, Marker, TileLayer, Popup, useMap, useMapEvent } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, Popup, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet/dist/leaflet.css';
@@ -20,16 +20,22 @@ const createClusterCustomIcon = function (cluster) {
 };
 
 function SetViewOnClick({ animateRef }) {
-  const map = useMapEvent('click', (e) => {
-    map.setView(e.latlng, map.getZoom(), {
-      animate: animateRef.current || false,
-    });
+  const map = useMapEvents({
+    click: (e) => {
+      map.setView(e.latlng, map.getZoom(), {
+        animate: animateRef.current || false,
+      });
+    },
+    moveend: (e) => {
+      console.log(e);
+    },
   });
 
   return null;
 }
 
 const RecenterAutomatically = ({ lat, lng }) => {
+  console.log(lat, lng)
   const map = useMap();
   useEffect(() => {
     map.setView([lat, lng]);
@@ -40,7 +46,7 @@ const RecenterAutomatically = ({ lat, lng }) => {
 
 export const MapLayout = React.memo(() => {
 
-  const { getAllLocations, getLocationByID } = useContext(HomeContext);
+  const { getAllLocations, getLocationByID, handleGetLocation } = useContext(HomeContext);
 
   const animateRef = useRef(true);
 
@@ -79,8 +85,9 @@ export const MapLayout = React.memo(() => {
                 icon={defaultMarker}
                 key={index}
                 eventHandlers={{
-                  click: (e) => {
-                    console.log(`marker clicked ${item.id}`, e);
+                  click: () => {
+                    console.log('lol')
+                    handleGetLocation(item.id);
                   },
                 }}
               >
