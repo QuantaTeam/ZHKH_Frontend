@@ -87,7 +87,7 @@ export const MapLayout = React.memo(() => {
                 eventHandlers={{
                   click: () => {
                     console.log('lol')
-                    handleGetLocation(item.id);
+                    //handleGetLocation(item.id);
                   },
                 }}
               >
