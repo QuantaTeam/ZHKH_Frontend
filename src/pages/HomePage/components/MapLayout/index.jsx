@@ -27,7 +27,7 @@ function SetViewOnClick({ animateRef }) {
       });
     },
     moveend: (e) => {
-      console.log(e);
+      //console.log(e);
     },
   });
 
@@ -35,7 +35,6 @@ function SetViewOnClick({ animateRef }) {
 }
 
 const RecenterAutomatically = ({ lat, lng }) => {
-  console.log(lat, lng)
   const map = useMap();
   useEffect(() => {
     map.setView([lat, lng]);
@@ -79,27 +78,28 @@ export const MapLayout = React.memo(() => {
           showCoverageOnHover={true}
         >
           {
-            getAllLocations.data?.map((item, index) => (
-              <Marker
-                position={item.geo_coordinates}
-                icon={defaultMarker}
-                key={index}
-                eventHandlers={{
-                  click: () => {
-                    console.log('lol')
-                    //handleGetLocation(item.id);
-                  },
-                }}
-              >
-                <Popup className="request-popup">
-                  <div >
-                    <div className="m-2" >
-                      {item.id}
+            getAllLocations.data?.res?.map((item, index) => {
+              if (item.geo_coordinates) {
+                <Marker
+                  position={item.geo_coordinates}
+                  icon={defaultMarker}
+                  key={index}
+                  eventHandlers={{
+                    click: () => {
+                      //handleGetLocation(item.id);
+                    },
+                  }}
+                >
+                  <Popup className="request-popup">
+                    <div >
+                      <div className="m-2" >
+                        {item.id}
+                      </div>
                     </div>
-                  </div>
-                </Popup>
-              </Marker>
-            ))
+                  </Popup>
+                </Marker>
+              } return null;
+            })
           }
         </MarkerClusterGroup>
       </MapContainer>

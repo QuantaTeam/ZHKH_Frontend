@@ -9,3 +9,8 @@ export const GET_LOCATION_BY_ID_REQUEST = createAction('GET_LOCATION_BY_ID_REQUE
 export const GET_LOCATION_BY_ID_SUCCESS = createAction('GET_LOCATION_BY_ID_SUCCESS');
 export const GET_LOCATION_BY_ID_FAIL = createAction('GET_LOCATION_BY_ID_FAIL');
 export const GET_LOCATION_BY_ID_RESET = createAction('GET_LOCATION_BY_ID_RESET');
+
+export const GET_FILTER_DATA_REQUEST = createAction('GET_FILTER_DATA_REQUEST');
+export const GET_FILTER_DATA_SUCCESS = createAction('GET_FILTER_DATA_SUCCESS');
+export const GET_FILTER_DATA_FAIL = createAction('GET_FILTER_DATA_FAIL');
+export const GET_FILTER_DATA_RESET = createAction('GET_FILTER_DATA_RESET');

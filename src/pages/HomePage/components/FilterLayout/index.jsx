@@ -11,11 +11,11 @@ export const FilterLayout = () => {
   return (
     <div className={styles.base__contetnt}>
       <div className={styles.filter}>
+        <Control />
+      </div>
+      <div className={styles.map__range}>
         <ListRequest />
-        <div className={styles.map__range}>
-          <Control />
-          <MapContainer />
-        </div>
+        <MapContainer />
       </div>
     </div>
   );
