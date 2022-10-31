@@ -8,25 +8,13 @@ import * as actions from '../actions';
 
 import { FilterLayout } from '../components/FilterLayout';
 
+import { defaultFilterState } from './data';
+
 export const FilterContainer = () => {
 
   const dispatch = useDispatch();
 
-  const [filterState, setFilterState] = useState({
-    district_code: [],
-    defect_category_name: [],
-    type_of_work_performed: [],
-    district_name: [],
-    name_of_the_management_company: [],
-    name_of_the_service_organization: [],
-    quality_evaluation: [],
-    source_name: [],
-    page: 1,
-    resetPage: false,
-    is_anomaly: false,
-    query: '',
-  });
-
+  const [filterState, setFilterState] = useState(defaultFilterState);
 
   const handleChangeFilter = useCallback((data, name) => {
     setFilterState((state) => {
@@ -79,10 +67,15 @@ export const FilterContainer = () => {
     }));
   }, []);
 
+  const handleClearFilter = useCallback(() => {
+    setFilterState(defaultFilterState);
+  }, []);
+
   return <FilterContext.Provider value={{
     filterState,
     handleChangeFilter,
     handleChangePagination,
+    handleClearFilter,
   }}>
     <FilterLayout />
   </FilterContext.Provider>;
