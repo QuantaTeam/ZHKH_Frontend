@@ -1,6 +1,15 @@
 .control__container {
   margin-bottom: 10px;
 
+  .search__field{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    width: -webkit-fill-available;
+    height: 36px;
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 80%);
+  }
+
   .lists__container {
     margin-bottom: 10px;
     width: 100%;
@@ -20,6 +29,7 @@
     .switch__container{
       display: flex;
       align-items: center;
+      height: 38px;
     }
   }
 
