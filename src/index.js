@@ -9,6 +9,8 @@ import { configureStore } from './store/configureStore';
 import { Itinerary } from './routes/Routes';
 import { MainLayout } from './commonComponents/MainLayout';
 
+import './styles/index.css';
+
 const store = configureStore();
 const persistor = persistStore(store);
 

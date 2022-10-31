@@ -18,10 +18,8 @@ export const HomePageContainer = () => {
   const [dateTo, setDateTo] = useState(new Date());
 
   useEffect(() => {
-    dispatch(actions.GET_ALL_LOCATIONS_REQUEST());
     dispatch(actions.GET_FILTER_DATA_REQUEST());
     return () => {
-      dispatch(actions.GET_ALL_LOCATIONS_RESET());
       dispatch(actions.GET_FILTER_DATA_RESET());
     };
   }, [dispatch]);

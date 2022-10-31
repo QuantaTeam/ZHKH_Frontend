@@ -29,6 +29,11 @@ export const Control = () => {
 
   return (
     <div className={styles.control__container}>
+      <input
+        className={styles.search__field}
+        placeholder='Поисковый запрос'
+        onChange={e => handleChangeFilter(e.target.value, 'query')}
+      />
       <div className={styles.lists__container}>
         <div className={styles.list__container}>
           <Select
