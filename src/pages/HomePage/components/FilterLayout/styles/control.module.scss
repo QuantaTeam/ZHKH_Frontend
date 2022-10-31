@@ -1,8 +1,32 @@
-.control__container{
+.control__container {
   margin-bottom: 10px;
-  .pickers__container{
+
+  .lists__container {
+    margin-bottom: 10px;
+    width: 100%;
     display: flex;
-    .picker__from{
+    flex-wrap: wrap;
+
+    .list__container {
+      margin: 0 10px 10px 0;
+      margin-right: 10px;
+      width: 32%;
+    }
+
+    .list__container:last-child {
+      margin: 0 0px 0px 0;
+    }
+
+    .switch__container{
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .pickers__container {
+    display: flex;
+
+    .picker__from {
       margin-right: 20px;
     }
   }
