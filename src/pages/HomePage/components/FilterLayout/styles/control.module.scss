@@ -1,7 +1,7 @@
 .control__container {
   margin-bottom: 10px;
 
-  .search__field{
+  .search__field {
     padding-left: 10px;
     margin-bottom: 10px;
     width: -webkit-fill-available;
@@ -26,18 +26,29 @@
       margin: 0 0px 0px 0;
     }
 
-    .switch__container{
+    .switch__container {
       display: flex;
       align-items: center;
       height: 38px;
     }
   }
 
-  .pickers__container {
+  .calendar__container {
     display: flex;
+    align-items: center;
 
-    .picker__from {
-      margin-right: 20px;
+    .pickers__container {
+      display: flex;
+
+      .picker__from {
+        margin-right: 20px;
+      }
+    }
+
+    .clear__filter__btn {
+      margin-left: 10px;
+      height: 38px;
+      cursor: pointer;
     }
   }
 }
