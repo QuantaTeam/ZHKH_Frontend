@@ -34,14 +34,16 @@ export const ListRequest = () => {
           </div>
         ))
       }
-      <div className={styles.pagination__container}>
-        <Pagination
-          shape="rounded"
-          page={filterState.page}
-          count={getAllLocations.data?.count_pages}
-          onChange={handleChangePagination}
-        />
-      </div>
+      {
+        getAllLocations.data?.res.length > 0 && <div className={styles.pagination__container}>
+          <Pagination
+            shape="rounded"
+            page={filterState.page}
+            count={getAllLocations.data?.count_pages}
+            onChange={handleChangePagination}
+          />
+        </div>
+      }
     </div >
   );
 };
