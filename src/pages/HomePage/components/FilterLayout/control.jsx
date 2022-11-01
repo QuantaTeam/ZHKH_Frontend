@@ -6,10 +6,13 @@ import TextField from '@mui/material/TextField';
 import 'dayjs/locale/ru';
 import Select from 'react-select';
 import Switch from '@mui/material/Switch';
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
+import SearchIcon from '@mui/icons-material/Search';
 
 import { HomeContext } from '../../context';
 import { FilterContext } from '../../context';
 
+import { SelectStyles } from './styles/stylesSelect';
 import styles from './styles/filter.module.scss';
 
 export const Control = () => {
@@ -30,17 +33,24 @@ export const Control = () => {
 
   return (
     <div className={styles.control__container}>
-      <input
-        className={styles.search__field}
-        placeholder='Дефект, Адрес, Округ, Район, УО, Исполнитель'
-        onChange={e => handleChangeFilter(e.target.value, 'query')}
-        value={filterState.query}
-      />
+      <div className={styles.search__container}>
+        <SearchIcon />
+        <input
+          className={styles.search__field}
+          placeholder='Дефект, Адрес, Округ, Район, УО, Исполнитель'
+          onChange={e => handleChangeFilter(e.target.value, 'query')}
+          value={filterState.query}
+        />
+        <button className={styles.search__btn}>
+          <SearchIcon />
+        </button>
+      </div>
       <div className={styles.lists__container}>
         <div className={styles.list__container}>
           <Select
             closeMenuOnSelect={false}
             value={filterState.district_code}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.district_code}
             onChange={e => handleChangeFilter(e, 'district_code')}
@@ -51,6 +61,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.defect_category_name}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.defect_category_name}
             onChange={e => handleChangeFilter(e, 'defect_category_name')}
@@ -61,6 +72,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.type_of_work_performed}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.type_of_work_performed}
             onChange={e => handleChangeFilter(e, 'type_of_work_performed')}
@@ -71,6 +83,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.district_name}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.district_name}
             onChange={e => handleChangeFilter(e, 'district_name')}
@@ -81,6 +94,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.name_of_the_management_company}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.name_of_the_management_company}
             onChange={e => handleChangeFilter(e, 'name_of_the_management_company')}
@@ -91,6 +105,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.name_of_the_service_organization}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.name_of_the_service_organization}
             onChange={e => handleChangeFilter(e, 'name_of_the_service_organization')}
@@ -101,6 +116,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.quality_evaluation}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.quality_evaluation}
             onChange={e => handleChangeFilter(e, 'quality_evaluation')}
@@ -111,6 +127,7 @@ export const Control = () => {
           <Select
             closeMenuOnSelect={false}
             value={filterState.source_name}
+            styles={SelectStyles()}
             isMulti
             options={getFilterData.data?.source_name}
             onChange={e => handleChangeFilter(e, 'source_name')}
@@ -143,7 +160,7 @@ export const Control = () => {
           </div>
         </LocalizationProvider>
         <button className={styles.clear__filter__btn} onClick={handleClearFilter}>
-          Очистить фильтр
+          <DeleteForeverRoundedIcon />
         </button>
       </div>
     </div>
