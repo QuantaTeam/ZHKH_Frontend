@@ -14,9 +14,6 @@ export const HomePageContainer = () => {
   const getLocationByID = useSelector(state => state.getLocationByID);
   const getFilterData = useSelector(state => state.getFilterData);
 
-  const [dateFrom, setDateFrom] = useState(new Date());
-  const [dateTo, setDateTo] = useState(new Date());
-
   useEffect(() => {
     dispatch(actions.GET_FILTER_DATA_REQUEST());
     return () => {
@@ -25,7 +22,7 @@ export const HomePageContainer = () => {
   }, [dispatch]);
 
   const handleGetLocation = useCallback((id) => {
-    if (id === getLocationByID?.data?.id) {
+    if (getLocationByID?.data && (id === getLocationByID?.data['69'])) {
       dispatch(dispatch(actions.GET_LOCATION_BY_ID_RESET()));
     } else {
       dispatch(actions.GET_LOCATION_BY_ID_REQUEST(id));
@@ -34,12 +31,8 @@ export const HomePageContainer = () => {
 
   return <HomeContext.Provider value={{
     getAllLocations,
-    dateFrom,
-    dateTo,
     getLocationByID,
     getFilterData,
-    setDateFrom,
-    setDateTo,
     handleGetLocation,
   }}>
     <HomePageLayout />

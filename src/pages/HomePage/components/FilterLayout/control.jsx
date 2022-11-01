@@ -18,10 +18,6 @@ import styles from './styles/filter.module.scss';
 export const Control = () => {
 
   const {
-    dateFrom,
-    dateTo,
-    setDateFrom,
-    setDateTo,
     getFilterData,
   } = useContext(HomeContext);
 
@@ -145,15 +141,15 @@ export const Control = () => {
           <div className={styles.pickers__container}>
             <div className={styles.picker__from}>
               <DateTimePicker
-                value={dateFrom}
-                onChange={e => e?.$d && setDateFrom(e.$d)}
+                value={filterState.creation_timestamp_start}
+                onChange={e => e?.$d && handleChangeFilter(e.$d, 'creation_timestamp_start')}
                 renderInput={(params) => <TextField size="small"{...params} />}
               />
             </div>
             <div className={styles.picker__to}>
               <DateTimePicker
-                value={dateTo}
-                onChange={e => e?.$d && setDateTo(e?.$d)}
+                value={filterState.creation_timestamp_end}
+                onChange={e => e?.$d && handleChangeFilter(e.$d, 'creation_timestamp_end')}
                 renderInput={(params) => <TextField size="small"{...params} />}
               />
             </div>
