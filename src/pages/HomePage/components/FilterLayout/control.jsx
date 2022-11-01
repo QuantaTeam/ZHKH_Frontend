@@ -32,7 +32,7 @@ export const Control = () => {
     <div className={styles.control__container}>
       <input
         className={styles.search__field}
-        placeholder='Поисковый запрос'
+        placeholder='Дефект, Адрес, Округ, Район, УО, Исполнитель'
         onChange={e => handleChangeFilter(e.target.value, 'query')}
         value={filterState.query}
       />
@@ -74,7 +74,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.district_name}
             onChange={e => handleChangeFilter(e, 'district_name')}
-            placeholder='district_name'
+            placeholder='Район'
           />
         </div>
         <div className={styles.list__container}>
@@ -84,7 +84,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.name_of_the_management_company}
             onChange={e => handleChangeFilter(e, 'name_of_the_management_company')}
-            placeholder='name_of_the_management_company'
+            placeholder='УО(для управляющей компании)'
           />
         </div>
         <div className={styles.list__container}>
@@ -94,7 +94,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.name_of_the_service_organization}
             onChange={e => handleChangeFilter(e, 'name_of_the_service_organization')}
-            placeholder='name_of_the_service_organization'
+            placeholder='Компания исполнитель'
           />
         </div>
         <div className={styles.list__container}>
@@ -104,7 +104,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.quality_evaluation}
             onChange={e => handleChangeFilter(e, 'quality_evaluation')}
-            placeholder='quality_evaluation'
+            placeholder='Оценка качества'
           />
         </div>
         <div className={styles.list__container}>
@@ -114,7 +114,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.source_name}
             onChange={e => handleChangeFilter(e, 'source_name')}
-            placeholder='source_name'
+            placeholder='Источник'
           />
         </div>
         <div className={styles.switch__container}>
