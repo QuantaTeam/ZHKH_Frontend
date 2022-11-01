@@ -40,14 +40,14 @@ export const ListRequest = () => {
     <div className={styles.list__reuest}>
       {
         getAllLocations.data?.res?.map((item, index) => (
-          <div className={styles.item} key={index} onClick={() => handleGetLocation(item.id)}>
+          <div className={styles.item} key={index} onClick={() => handleGetLocation(item['69'])}>
             <div className={styles.show__el}>
-              {item.id}
+              {item['69']}
             </div>
             {
-              getLocationByID?.data?.id === item.id && <div className={styles.hide__el}>
+              getLocationByID?.data && getLocationByID?.data['69'] === item['69'] && <div className={styles.hide__el}>
                 <div>
-                  Заявка: {getLocationByID?.data?.Описание}
+                  Заявка: {getLocationByID?.data['23']}
                 </div>
               </div>
             }

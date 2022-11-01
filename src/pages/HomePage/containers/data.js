@@ -11,4 +11,6 @@ export const defaultFilterState = {
   resetPage: false,
   is_anomaly: false,
   query: '',
+  creation_timestamp_start: new Date('2020-01-01T00:00:00'),
+  creation_timestamp_end: new Date(),
 };

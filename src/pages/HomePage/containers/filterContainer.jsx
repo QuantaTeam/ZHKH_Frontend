@@ -47,6 +47,14 @@ export const FilterContainer = () => {
         result = data.query ? result + `&query=${data[array]}` : result;
         continue;
       }
+      if (array === 'creation_timestamp_start') {
+        result = data.creation_timestamp_start ? result + `&creation_timestamp_start=${JSON.parse(JSON.stringify(data[array]))}` : result;
+        continue;
+      }
+      if (array === 'creation_timestamp_end') {
+        result = data.creation_timestamp_end ? result + `&creation_timestamp_end=${JSON.parse(JSON.stringify(data[array]))}` : result;
+        continue;
+      }
       if (data[array].length > 0) {
         result = result + `&${array}=` + data[array].map((item) => item.value).join(',');
       }

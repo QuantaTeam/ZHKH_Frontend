@@ -62,7 +62,7 @@ export const MapLayout = React.memo(() => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <SetViewOnClick animateRef={animateRef} />
-        {getLocationByID.data?.geo_coordinates && <RecenterAutomatically lat={getLocationByID.data?.geo_coordinates[0]} lng={getLocationByID.data?.geo_coordinates[1]} />}
+        {getLocationByID.data && getLocationByID.data['68'] && <RecenterAutomatically lat={getLocationByID.data['68'][0]} lng={getLocationByID.data['68'][1]} />}
         <MarkerClusterGroup
           onClick={(e) => console.log('onClick', e)}
           iconCreateFunction={createClusterCustomIcon}
@@ -79,9 +79,9 @@ export const MapLayout = React.memo(() => {
         >
           {
             getAllLocations.data?.res?.map((item, index) => {
-              if (item.geo_coordinates) {
+              if (item['68']) {
                 <Marker
-                  position={item.geo_coordinates}
+                  position={item['68']}
                   icon={defaultMarker}
                   key={index}
                   eventHandlers={{
@@ -93,11 +93,11 @@ export const MapLayout = React.memo(() => {
                   <Popup className="request-popup">
                     <div >
                       <div className="m-2" >
-                        {item.id}
+                        {item['69']}
                       </div>
                     </div>
                   </Popup>
-                </Marker>
+                </Marker>;
               } return null;
             })
           }
