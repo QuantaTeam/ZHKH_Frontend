@@ -64,7 +64,7 @@ export const MapLayout = React.memo(() => {
         <SetViewOnClick animateRef={animateRef} />
         {getLocationByID.data && getLocationByID.data['68'] && <RecenterAutomatically lat={getLocationByID.data['68'][0]} lng={getLocationByID.data['68'][1]} />}
         <MarkerClusterGroup
-          onClick={(e) => console.log('onClick', e)}
+          //onClick={(e) => console.log('onClick', e)}
           iconCreateFunction={createClusterCustomIcon}
           maxClusterRadius={150}
           spiderfyOnMaxZoom={true}
@@ -78,28 +78,27 @@ export const MapLayout = React.memo(() => {
           showCoverageOnHover={true}
         >
           {
-            getAllLocations.data?.res?.map((item, index) => {
-              if (item['68']) {
-                <Marker
-                  position={item['68']}
-                  icon={defaultMarker}
-                  key={index}
-                  eventHandlers={{
-                    click: () => {
-                      //handleGetLocation(item.id);
-                    },
-                  }}
-                >
-                  <Popup className="request-popup">
-                    <div >
-                      <div className="m-2" >
-                        {item['69']}
-                      </div>
+            getAllLocations.data.res?.map((item, index) => (
+              item.geo_coordinates && <Marker
+                position={item.geo_coordinates}
+                icon={defaultMarker}
+                key={index}
+                eventHandlers={{
+                  click: () => {
+                    //handleGetLocation(item.id);
+                  },
+                }
+                }
+              >
+                <Popup className="request-popup">
+                  <div >
+                    <div className="m-2" >
+                      {item['69']}
                     </div>
-                  </Popup>
-                </Marker>;
-              } return null;
-            })
+                  </div>
+                </Popup>
+              </Marker>
+            ))
           }
         </MarkerClusterGroup>
       </MapContainer>

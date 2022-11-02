@@ -4,16 +4,139 @@
   width: 50%;
   overflow-y: auto;
 
-  .item {
-    border-bottom: 1px solid rgb(218, 218, 218);
-    padding-left: 10px;
+  .loader__container{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .show__el {
-      height: 30px;
+  .list__header {
+    padding: 0 10px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E7FFE7;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #6E6893;
+
+    .checkbox__container {
       display: flex;
       align-items: center;
+    }
+
+    .name {
+      width: 220px;
+    }
+
+    .data {
+      width: 130px;
+    }
+
+    .update {
+      width: 130px;
+    }
+
+    .address {
+      width: 220px;
+    }
+  }
+
+  .item {
+    border-bottom: 1px solid rgb(218, 218, 218);
+
+    .show__el {
+      padding: 5px 10px;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
       transition: all 0.3s;
+
+      .checkbox__container {
+        display: flex;
+        align-items: center;
+
+        span {
+          padding: 0;
+        }
+      }
+
+      .name {
+        width: 220px;
+        font-size: 14px;
+      }
+
+      .data {
+        width: 130px;
+
+        .status {
+          border-radius: 10px;
+          padding-left: 10px;
+
+          svg {
+            margin-right: 2px;
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        .time {}
+      }
+
+      .update {
+        width: 130px;
+
+        .status {
+          border-radius: 10px;
+          padding-left: 10px;
+
+          svg {
+            margin-right: 2px;
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        .time {}
+      }
+
+      .address {
+        width: 220px;
+        font-size: 14px;
+      }
+
+      .color__purple {
+        background-color: #E6E6F2;
+        color: #4A4AFF;
+      }
+
+      .color__green {
+        color: #007F00;
+        background-color: #CDFFCD;
+      }
+
+      .color__red {
+        background-color: #EC2E15;
+        color: #fff;
+      }
+
+      .color__light__red {
+        background-color: #FFBABA;
+        color: #7F0000;
+      }
+
+      .color__yellow {
+        background-color: #FFECCC;
+        color: #7F5400;
+      }
     }
 
     .hide__el {

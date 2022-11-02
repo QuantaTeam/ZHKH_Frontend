@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { debounce } from '../../../hooks/debounce';
 
@@ -15,6 +15,8 @@ export const FilterContainer = () => {
   const dispatch = useDispatch();
 
   const [filterState, setFilterState] = useState(defaultFilterState);
+
+  const getAllLocations = useSelector(state => state.getAllLocations);
 
   const handleChangeFilter = useCallback((data, name) => {
     setFilterState((state) => {
@@ -33,14 +35,14 @@ export const FilterContainer = () => {
 
   const apiCall = useDebounce((data) => {
     let result = '';
-
+    console.log(data)
     for (const array in data) {
       if (array === 'is_anomaly') {
         result = result + `&is_anomaly=${data[array]}`;
         continue;
       }
       if (array === 'page') {
-        result = data.resetPage ? result + '&skip=12' : result + `&skip=${12 * data[array]}`;
+        result = data.resetPage ? result + '&skip=0' : result + `&skip=${data[array] === 1 ? 0 * data[array] : 12 * (data[array] - 1)}`;
         continue;
       }
       if (array === 'query') {
@@ -81,6 +83,7 @@ export const FilterContainer = () => {
 
   return <FilterContext.Provider value={{
     filterState,
+    getAllLocations,
     handleChangeFilter,
     handleChangePagination,
     handleClearFilter,
