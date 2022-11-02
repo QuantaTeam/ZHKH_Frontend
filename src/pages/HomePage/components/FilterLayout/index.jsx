@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { MapContainer } from '../../containers/mapContainer';
+
+import { FilterContext } from '../../context';
 
 import { Control } from './control';
 import { ListRequest } from './listRequest';
@@ -8,6 +10,7 @@ import { ListRequest } from './listRequest';
 import styles from './styles/filter.module.scss';
 
 export const FilterLayout = () => {
+  const { getAllLocations } = useContext(FilterContext);
   return (
     <div className={styles.base__contetnt}>
       <div className={styles.filter}>
@@ -15,7 +18,7 @@ export const FilterLayout = () => {
       </div>
       <div className={styles.map__range}>
         <ListRequest />
-        <MapContainer />
+        {getAllLocations.data && <MapContainer />}
       </div>
     </div>
   );

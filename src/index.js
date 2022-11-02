@@ -14,6 +14,8 @@ import './styles/index.css';
 const store = configureStore();
 const persistor = persistStore(store);
 
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >

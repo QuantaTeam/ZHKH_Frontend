@@ -15,4 +15,5 @@
   line-height: 37px;
   text-align: center;
   width: 33px;
+  box-sizing: initial;
 }
