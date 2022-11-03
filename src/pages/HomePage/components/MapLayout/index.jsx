@@ -37,8 +37,16 @@ function SetViewOnClick({ animateRef }) {
 const RecenterAutomatically = ({ lat, lng }) => {
   const map = useMap();
   useEffect(() => {
-    map.setView([lat, lng]);
-    map.setZoom(15);
+    if (lat && lng) {
+      map.setView([lat, lng]);
+      map.setZoom(15);
+    }
+  }, [lat, lng, map]);
+  useEffect(() => {
+    if (lat && lng) {
+      map.setView([lat, lng]);
+      map.setZoom(15);
+    }
   }, [lat, lng, map]);
   return null;
 };
@@ -62,7 +70,7 @@ export const MapLayout = React.memo(() => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <SetViewOnClick animateRef={animateRef} />
-        {getLocationByID.data && getLocationByID.data['68'] && <RecenterAutomatically lat={getLocationByID.data['68'][0]} lng={getLocationByID.data['68'][1]} />}
+        <RecenterAutomatically lat={getLocationByID?.data?.geo_coordinates[0]} lng={getLocationByID?.data?.geo_coordinates[1]} />
         <MarkerClusterGroup
           //onClick={(e) => console.log('onClick', e)}
           iconCreateFunction={createClusterCustomIcon}
@@ -85,12 +93,12 @@ export const MapLayout = React.memo(() => {
                 key={index}
                 eventHandlers={{
                   click: () => {
-                    //handleGetLocation(item.id);
+                    //handleGetLocation(item['69']);
                   },
                 }
                 }
               >
-                <Popup className="request-popup">
+                <Popup className="request-popup" onClose={() => { getLocationByID.data && handleGetLocation(item['69']); }}>
                   <div >
                     <div className="m-2" >
                       {item['31']}
