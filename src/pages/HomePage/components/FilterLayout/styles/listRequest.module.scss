@@ -141,8 +141,23 @@
       }
   
       .hide__el {
-        padding: 10px 0;
-        background-color: rgb(226, 226, 226);
+        padding: 10px;
+        .item__data{
+          margin-bottom: 10px;
+          display: flex;
+          font-size: 14px;
+          .name{
+            margin-right: 10px;
+            width: 200px;
+            flex-shrink: 0;
+          }
+          .data{
+
+          }
+        }
+        .item__data:last-child{
+          margin-bottom: 0;
+        }
       }
   
       .show__el:hover {

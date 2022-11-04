@@ -109,8 +109,101 @@ export const ListRequest = () => {
               </div>
               {
                 getLocationByID?.data && getLocationByID?.data['69'] === item['69'] && <div className={styles.hide__el}>
-                  <div>
-                    Заявка: {getLocationByID?.data['23']}
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Наименование дефекта
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['18'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Наименование дефекта
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['18'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Уникальный номер обращения
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['3'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Адрес
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['31'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Район
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['29'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Округ
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['27'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Описание дефекта
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['18'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Имя создателя заявки
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['8'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Отзыв
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['62'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Комментарии
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['14'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Пользователь внесший последние изменения
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['12'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Признак дефекта возврата на доработку (причина)
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['22'] || 'Отсутствует'}
+                    </div>
                   </div>
                 </div>
               }
