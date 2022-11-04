@@ -86,7 +86,7 @@ export const MapLayout = React.memo(() => {
           showCoverageOnHover={true}
         >
           {
-            getAllLocations.data.res?.map((item, index) => (
+            getAllLocations.data?.res?.map((item, index) => (
               item.geo_coordinates && <Marker
                 position={item.geo_coordinates}
                 icon={defaultMarker}

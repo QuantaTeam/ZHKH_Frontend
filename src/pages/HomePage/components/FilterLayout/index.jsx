@@ -18,7 +18,7 @@ export const FilterLayout = () => {
       </div>
       <div className={styles.map__range}>
         <ListRequest />
-        {getAllLocations.data && <MapContainer />}
+        <MapContainer />
       </div>
     </div>
   );
