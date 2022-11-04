@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { makeStyles } from '@mui/styles';
-import CropSquareRoundedIcon from '@mui/icons-material/CropSquareRounded';
-import Checkbox from '@mui/material/Checkbox';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 import CircularProgress from '@mui/material/CircularProgress';
+import { motion } from 'framer-motion';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 import { DateParseFullYear, TimeParse } from '../../../../hooks/dateParse';
 import { HomeContext } from '../../context';
@@ -31,16 +31,40 @@ const useStyles = makeStyles({
 });
 
 export const ListRequest = () => {
+
   const {
     getAllLocations,
     handleGetLocation,
     getLocationByID,
   } = useContext(HomeContext);
+
   const {
     filterState,
     handleChangePagination,
   } = useContext(FilterContext);
+
   const classes = useStyles();
+
+  const variants = {
+    open: {
+      opacity: 1,
+      height: 'auto',
+      visibility: 'visible',
+      display: 'block',
+    },
+    closed: {
+      opacity: 0,
+      height: 0,
+      visibility: 'hidden',
+      transitionEnd: { display: 'none' },
+    },
+  };
+
+  const variantsArrow = {
+    open: { transform: 'rotate(0deg)' },
+    closed: { transform: 'rotate(180deg)' },
+  };
+
   return (
     <div className={styles.list__component}>
       <div className={styles.list__reuest}>
@@ -66,6 +90,15 @@ export const ListRequest = () => {
           getAllLocations.data?.res?.map((item, index) => (
             <div className={styles.item} key={index} onClick={() => handleGetLocation(item['69'])}>
               <div className={styles.show__el}>
+                <motion.div
+                  initial={'open'}
+                  animate={getLocationByID.data && getLocationByID?.data['69'] === item['69'] ? 'closed' : 'open'}
+                  transition={{ duration: 0.3 }}
+                  variants={variantsArrow}
+                  className={styles.svg__container}
+                >
+                  <KeyboardArrowDownRoundedIcon />
+                </motion.div>
                 <div className={styles.name}>
                   {item['18']}
                 </div>
@@ -95,7 +128,13 @@ export const ListRequest = () => {
                 </div>
               </div>
               {
-                getLocationByID?.data && getLocationByID?.data['69'] === item['69'] && <div className={styles.hide__el}>
+                getLocationByID?.data && getLocationByID?.data['69'] === item['69'] && <motion.div
+                  className={styles.hide__el}
+                  initial={'closed'}
+                  animate={getLocationByID?.data['69'] === item['69'] ? 'open' : 'closed'}
+                  transition={{ duration: 0.3 }}
+                  variants={variants}
+                >
                   <div className={styles.item__data}>
                     <div className={styles.name}>
                       Наименование дефекта
@@ -192,7 +231,7 @@ export const ListRequest = () => {
                       {getLocationByID?.data['22'] || 'Отсутствует'}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               }
             </div>
           ))

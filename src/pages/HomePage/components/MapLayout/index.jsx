@@ -41,12 +41,12 @@ const RecenterAutomatically = ({ lat, lng }) => {
       map.setView([lat, lng]);
       map.setZoom(15);
     }
-  }, [lat, lng, map]);
-  useEffect(() => {
-    if (lat && lng) {
-      map.setView([lat, lng]);
-      map.setZoom(15);
-    }
+    setTimeout(() => {
+      if (lat && lng) {
+        map.setView([lat, lng]);
+        map.setZoom(15);
+      }
+    }, 0)
   }, [lat, lng, map]);
   return null;
 };
@@ -98,7 +98,7 @@ export const MapLayout = React.memo(() => {
                 }
                 }
               >
-                <Popup className="request-popup" onClose={() => { getLocationByID.data && handleGetLocation(item['69']); }}>
+                <Popup className="request-popup" onClose={() => { getLocationByID.data && getLocationByID.data['69'] === item['69'] && handleGetLocation(item['69']); }}>
                   <div >
                     <div className="m-2" >
                       {item['31']}
