@@ -23,12 +23,7 @@
       font-size: 12px;
       line-height: 15px;
       color: #6E6893;
-  
-      .checkbox__container {
-        display: flex;
-        align-items: center;
-      }
-  
+    
       .name {
         width: 220px;
       }
@@ -60,16 +55,7 @@
         font-size: 12px;
         line-height: 15px;
         transition: all 0.3s;
-  
-        .checkbox__container {
-          display: flex;
-          align-items: center;
-  
-          span {
-            padding: 0;
-          }
-        }
-  
+    
         .name {
           width: 220px;
           font-size: 14px;

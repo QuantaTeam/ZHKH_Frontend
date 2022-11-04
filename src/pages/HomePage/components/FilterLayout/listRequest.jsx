@@ -48,9 +48,6 @@ export const ListRequest = () => {
 
         {
           getAllLocations.data && <div className={styles.list__header}>
-            <div className={styles.checkbox__container}>
-              <CropSquareRoundedIcon />
-            </div>
             <div className={styles.name}>
               Название дефекта
             </div>
@@ -69,16 +66,6 @@ export const ListRequest = () => {
           getAllLocations.data?.res?.map((item, index) => (
             <div className={styles.item} key={index} onClick={() => handleGetLocation(item['69'])}>
               <div className={styles.show__el}>
-                <div className={styles.checkbox__container}>
-                  <Checkbox
-                    sx={{
-                      '& .MuiSvgIcon-root': {
-                        width: 20,
-                        height: 20,
-                      },
-                    }}
-                  />
-                </div>
                 <div className={styles.name}>
                   {item['18']}
                 </div>
