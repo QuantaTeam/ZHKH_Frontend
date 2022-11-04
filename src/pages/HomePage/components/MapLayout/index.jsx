@@ -46,7 +46,15 @@ const RecenterAutomatically = ({ lat, lng }) => {
         map.setView([lat, lng]);
         map.setZoom(15);
       }
-    }, 0)
+    }, 0);
+  }, [lat, lng, map]);
+  useEffect(() => {
+    setTimeout(() => {
+      if (lat && lng) {
+        map.setView([lat, lng]);
+        map.setZoom(16);
+      }
+    }, 700);
   }, [lat, lng, map]);
   return null;
 };
@@ -93,7 +101,7 @@ export const MapLayout = React.memo(() => {
                 key={index}
                 eventHandlers={{
                   click: () => {
-                    //handleGetLocation(item['69']);
+                    handleGetLocation(item['69']);
                   },
                 }
                 }
