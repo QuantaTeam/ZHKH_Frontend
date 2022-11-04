@@ -5,6 +5,7 @@ import Brightness1Icon from '@mui/icons-material/Brightness1';
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from 'framer-motion';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
 
 import { DateParseFullYear, TimeParse } from '../../../../hooks/dateParse';
 import { HomeContext } from '../../context';
@@ -100,7 +101,10 @@ export const ListRequest = () => {
                   <KeyboardArrowDownRoundedIcon />
                 </motion.div>
                 <div className={styles.name}>
-                  {item['18']}
+                  <div className={styles.text}>
+                    {item['18']}
+                  </div>
+                  {item['70'] && <ErrorOutlineRoundedIcon />}
                 </div>
                 <div className={styles.data}>
                   <div className={`${item['25'] === 'Обычная' && styles.color__purple} ${item['25'] === 'Аварийная' && styles.color__red} ${styles.status}`}>
@@ -145,10 +149,10 @@ export const ListRequest = () => {
                   </div>
                   <div className={styles.item__data}>
                     <div className={styles.name}>
-                      Наименование дефекта
+                      Наименование категории срочности
                     </div>
                     <div className={styles.data}>
-                      {getLocationByID?.data['18'] || 'Отсутствует'}
+                      {getLocationByID?.data['25'] || 'Отсутствует'}
                     </div>
                   </div>
                   <div className={styles.item__data}>

@@ -59,13 +59,25 @@
 
         .svg__container {
           svg {
+            width: 20px;
+            height: 20px;
             fill: #6E6893;
           }
         }
 
         .name {
-          width: 220px;
+          display: flex;
+          width: 200px;
           font-size: 14px;
+          .text{
+            width: 175px;
+          }
+          svg{
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
+            fill: #D00F0F;
+          }
         }
 
         .data {
