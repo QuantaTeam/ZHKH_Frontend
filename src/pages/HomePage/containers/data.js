@@ -7,6 +7,7 @@ export const defaultFilterState = {
   quality_evaluation: [],
   source_name: [],
   result_desc: [],
+  urgency: [],
   page: 1,
   resetPage: false,
   is_anomaly: false,

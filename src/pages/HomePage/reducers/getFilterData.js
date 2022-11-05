@@ -32,6 +32,7 @@ export const getFilterData = createReducer(initialState, {
     response.quality_evaluation = response.quality_evaluation.map((item) => { return { label: item, value: item }; });
     response.source_name = response.source_name.map((item) => { return { label: item, value: item }; });
     response.result_desc = response.result_desc.map((item) => { return { label: item, value: item }; });
+    response.urgency = response.urgency.map((item) => { return { label: item, value: item }; });
 
     return {
       ...state,

@@ -130,10 +130,21 @@ export const Control = () => {
             placeholder='Результативность'
           />
         </div>
+        <div className={styles.list__container}>
+          <Select
+            closeMenuOnSelect={false}
+            value={filterState.urgency}
+            styles={SelectStyles()}
+            isMulti
+            options={getFilterData.data?.urgency}
+            onChange={e => handleChangeFilter(e, 'urgency')}
+            placeholder='Срочность'
+          />
+        </div>
         <div className={styles.switch__container}>
-          <div>Обычные-Аварийные</div>
+          <div>Все</div>
           <Switch value={filterState.is_anomaly} onChange={e => handleChangeFilter(e.target.checked, 'is_anomaly')} checked={filterState.is_anomaly} />
-          <div>Все-Аномальные</div>
+          <div>Аномальные</div>
         </div>
         <div className={styles.switch__container}>
           <div>Без отзывов</div>
