@@ -28,7 +28,6 @@ export const SelectStyles = () => {
       },
       borderRadius: '40px',
       minHeight: '40px',
-      height: '30px',
       backgroundColor: '#fff',
       boxShadow: '0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08)',
       padding: '0 0 0 10px',

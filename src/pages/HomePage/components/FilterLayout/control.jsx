@@ -45,17 +45,6 @@ export const Control = () => {
         <div className={styles.list__container}>
           <Select
             closeMenuOnSelect={false}
-            value={filterState.district_code}
-            styles={SelectStyles()}
-            isMulti
-            options={getFilterData.data?.district_code}
-            onChange={e => handleChangeFilter(e, 'district_code')}
-            placeholder='Выберите код'
-          />
-        </div>
-        <div className={styles.list__container}>
-          <Select
-            closeMenuOnSelect={false}
             value={filterState.defect_category_name}
             styles={SelectStyles()}
             isMulti
@@ -130,10 +119,26 @@ export const Control = () => {
             placeholder='Источник'
           />
         </div>
+        <div className={styles.list__container}>
+          <Select
+            closeMenuOnSelect={false}
+            value={filterState.result_desc}
+            styles={SelectStyles()}
+            isMulti
+            options={getFilterData.data?.result_desc}
+            onChange={e => handleChangeFilter(e, 'result_desc')}
+            placeholder='Результативность'
+          />
+        </div>
         <div className={styles.switch__container}>
           <div>Обычные</div>
           <Switch value={filterState.is_anomaly} onChange={e => handleChangeFilter(e.target.checked, 'is_anomaly')} checked={filterState.is_anomaly} />
           <div>Аварийные</div>
+        </div>
+        <div className={styles.switch__container}>
+          <div>Без отзывов</div>
+          <Switch value={filterState.with_comment} onChange={e => handleChangeFilter(e.target.checked, 'with_comment')} checked={filterState.with_comment} />
+          <div>С отзывами</div>
         </div>
       </div>
       <div className={styles.calendar__container}>

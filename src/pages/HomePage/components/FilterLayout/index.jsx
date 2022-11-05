@@ -10,7 +10,7 @@ import { ListRequest } from './listRequest';
 import styles from './styles/filter.module.scss';
 
 export const FilterLayout = () => {
-  const { getAllLocations } = useContext(FilterContext);
+
   return (
     <div className={styles.base__contetnt}>
       <div className={styles.filter}>

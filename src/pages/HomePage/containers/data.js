@@ -1,5 +1,4 @@
 export const defaultFilterState = {
-  district_code: [],
   defect_category_name: [],
   type_of_work_performed: [],
   district_name: [],
@@ -7,9 +6,11 @@ export const defaultFilterState = {
   name_of_the_service_organization: [],
   quality_evaluation: [],
   source_name: [],
+  result_desc: [],
   page: 1,
   resetPage: false,
   is_anomaly: false,
+  with_comment: false,
   query: '',
   creation_timestamp_start: new Date('2020-01-01T00:00:00'),
   creation_timestamp_end: new Date('2022-12-31T00:00:00'),

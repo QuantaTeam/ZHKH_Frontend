@@ -35,10 +35,13 @@ export const FilterContainer = () => {
 
   const apiCall = useDebounce((data) => {
     let result = '';
-    console.log(data)
     for (const array in data) {
       if (array === 'is_anomaly') {
         result = result + `&is_anomaly=${data[array]}`;
+        continue;
+      }
+      if (array === 'with_comment') {
+        result = result + `&with_comment=${data[array]}`;
         continue;
       }
       if (array === 'page') {
