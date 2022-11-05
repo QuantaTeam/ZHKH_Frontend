@@ -106,7 +106,7 @@ export const MapLayout = React.memo(() => {
                 }
                 }
               >
-                <Popup className="request-popup" onClose={() => { getLocationByID.data && getLocationByID.data['69'] === item['69'] && handleGetLocation(item['69']); }}>
+                <Popup onOpen={true} className="request-popup" onClose={() => { getLocationByID.data && getLocationByID.data['69'] === item['69'] && handleGetLocation(item['69']); }} >
                   <div >
                     <div className="m-2" >
                       {item['31']}
