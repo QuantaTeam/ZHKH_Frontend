@@ -68,7 +68,7 @@ export const MapLayout = React.memo(() => {
   return (
     <div className={styles.map__container}>
       <MapContainer
-        style={{ height: '500px' }}
+        style={{ height: '600px' }}
         center={[55.754339720338024, 37.62283505324696]}
         zoom={10}
         scrollWheelZoom={true}

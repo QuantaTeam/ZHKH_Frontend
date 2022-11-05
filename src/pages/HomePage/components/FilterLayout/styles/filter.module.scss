@@ -2,9 +2,13 @@
 @import './control.module.scss';
 
 .base__contetnt {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   .filter {
   }
   .map__range {
     display: flex;
+    flex-grow: 1;
   }
 }
