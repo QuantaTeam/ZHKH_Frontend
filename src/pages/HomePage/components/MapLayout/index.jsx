@@ -26,9 +26,6 @@ function SetViewOnClick({ animateRef }) {
         animate: animateRef.current || false,
       });
     },
-    moveend: (e) => {
-      //console.log(e);
-    },
   });
 
   return null;
@@ -80,7 +77,6 @@ export const MapLayout = React.memo(() => {
         <SetViewOnClick animateRef={animateRef} />
         <RecenterAutomatically lat={getLocationByID?.data?.geo_coordinates[0]} lng={getLocationByID?.data?.geo_coordinates[1]} />
         <MarkerClusterGroup
-          //onClick={(e) => console.log('onClick', e)}
           iconCreateFunction={createClusterCustomIcon}
           maxClusterRadius={150}
           spiderfyOnMaxZoom={true}
