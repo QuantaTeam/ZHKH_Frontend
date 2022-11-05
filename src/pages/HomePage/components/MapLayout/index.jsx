@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { MapContainer, Marker, TileLayer, Popup, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, Popup, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import 'leaflet/dist/leaflet.css';
