@@ -131,9 +131,9 @@ export const Control = () => {
           />
         </div>
         <div className={styles.switch__container}>
-          <div>Обычные</div>
+          <div>Обычные-Аварийные</div>
           <Switch value={filterState.is_anomaly} onChange={e => handleChangeFilter(e.target.checked, 'is_anomaly')} checked={filterState.is_anomaly} />
-          <div>Аварийные</div>
+          <div>Все-Аномальные</div>
         </div>
         <div className={styles.switch__container}>
           <div>Без отзывов</div>

@@ -245,6 +245,14 @@ export const ListRequest = () => {
                   </div>
                   <div className={styles.item__data}>
                     <div className={styles.name}>
+                      Оценка качества выполнения работ
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['63'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
                       Пользователь внесший последние изменения
                     </div>
                     <div className={styles.data}>
