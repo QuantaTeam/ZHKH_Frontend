@@ -147,6 +147,7 @@
 
       .hide__el {
         padding: 10px;
+        background-color: #e7e7e7;
 
         .item__data {
           margin-bottom: 10px;
@@ -157,6 +158,7 @@
             margin-right: 10px;
             width: 200px;
             flex-shrink: 0;
+            font-weight: 500;
           }
 
           .data {}

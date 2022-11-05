@@ -149,7 +149,7 @@ export const ListRequest = () => {
                   </div>
                   <div className={styles.item__data}>
                     <div className={styles.name}>
-                      Наименование категории срочности
+                      Срочность
                     </div>
                     <div className={styles.data}>
                       {getLocationByID?.data['25'] || 'Отсутствует'}
