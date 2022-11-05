@@ -157,6 +157,30 @@ export const ListRequest = () => {
                   </div>
                   <div className={styles.item__data}>
                     <div className={styles.name}>
+                      Категория дефекта
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['15'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Управляющая организация
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['37'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
+                      Организация исполнитель
+                    </div>
+                    <div className={styles.data}>
+                      {getLocationByID?.data['38'] || 'Отсутствует'}
+                    </div>
+                  </div>
+                  <div className={styles.item__data}>
+                    <div className={styles.name}>
                       Уникальный номер обращения
                     </div>
                     <div className={styles.data}>
