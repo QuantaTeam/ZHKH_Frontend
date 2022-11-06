@@ -50,7 +50,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.defect_category_name}
             onChange={e => handleChangeFilter(e, 'defect_category_name')}
-            placeholder='Выберите название категории'
+            placeholder='Название категории'
           />
         </div>
         <div className={styles.list__container}>
@@ -61,7 +61,7 @@ export const Control = () => {
             isMulti
             options={getFilterData.data?.type_of_work_performed}
             onChange={e => handleChangeFilter(e, 'type_of_work_performed')}
-            placeholder='Выберите вид работы'
+            placeholder='Вид работы'
           />
         </div>
         <div className={styles.list__container}>
