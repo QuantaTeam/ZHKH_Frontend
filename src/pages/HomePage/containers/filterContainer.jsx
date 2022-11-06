@@ -40,10 +40,6 @@ export const FilterContainer = () => {
         result = result + `&is_anomaly=${data[array]}`;
         continue;
       }
-      if (array === 'with_comment') {
-        result = result + `&with_comment=${data[array]}`;
-        continue;
-      }
       if (array === 'page') {
         result = data.resetPage ? result + '&skip=0' : result + `&skip=${data[array] === 1 ? 0 * data[array] : 12 * (data[array] - 1)}`;
         continue;

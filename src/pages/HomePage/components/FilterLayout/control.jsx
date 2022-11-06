@@ -146,11 +146,6 @@ export const Control = () => {
           <Switch value={filterState.is_anomaly} onChange={e => handleChangeFilter(e.target.checked, 'is_anomaly')} checked={filterState.is_anomaly} />
           <div>Аномальные</div>
         </div>
-        <div className={styles.switch__container}>
-          <div>Без отзывов</div>
-          <Switch value={filterState.with_comment} onChange={e => handleChangeFilter(e.target.checked, 'with_comment')} checked={filterState.with_comment} />
-          <div>С отзывами</div>
-        </div>
       </div>
       <div className={styles.calendar__container}>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'ru'}>

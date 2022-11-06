@@ -11,7 +11,6 @@ export const defaultFilterState = {
   page: 1,
   resetPage: false,
   is_anomaly: false,
-  with_comment: false,
   query: '',
   creation_timestamp_start: new Date('2020-01-01T00:00:00'),
   creation_timestamp_end: new Date('2022-12-31T00:00:00'),
